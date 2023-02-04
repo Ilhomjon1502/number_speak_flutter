@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
                           final assetsAudioPlayer = AssetsAudioPlayer();
 
                           assetsAudioPlayer.open(
-                            Audio("assets/number_0.wav"),
+                            Audio("assets/number_0.mp3"),
                           );
                           assetsAudioPlayer.play();
                         },

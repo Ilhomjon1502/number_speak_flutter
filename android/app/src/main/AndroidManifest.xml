@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.number_speaker_flutter">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
    <application
         android:label="number_speaker_flutter"
        android:usesCleartextTraffic="true"
