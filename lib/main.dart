@@ -9,6 +9,30 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  void playMedia(int number) {
+    final assetsAudioPlayer = AssetsAudioPlayer();
+
+    assetsAudioPlayer.open(
+      Audio("assets/number_$number.wav"),
+    );
+    assetsAudioPlayer.play();
+  }
+
+  Expanded myNumberButton(Color color, int soundNumber){
+    return Expanded(
+      child: MaterialButton(
+        onPressed: () {
+          playMedia(soundNumber);
+        },
+        color: color,
+        child: Text(
+          '$soundNumber',
+          style: TextStyle(color: Colors.white, fontSize: 72),
+        ),
+      ),
+    );
+  }
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -22,23 +46,7 @@ class MyApp extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Expanded(
-                      child: MaterialButton(
-                        onPressed: () {
-                          // final player = AudioPlayer();
-                          // player.setSource(AssetSource('number_1.wav'));
-                          // player.play();
-                          final assetsAudioPlayer = AssetsAudioPlayer();
-
-                          assetsAudioPlayer.open(
-                            Audio("assets/number_0.mp3"),
-                          );
-                          assetsAudioPlayer.play();
-                        },
-                        color: Colors.lightGreenAccent,
-                        child: Text("0"),
-                      ),
-                    )
+                    myNumberButton(Colors.lightBlue, 0)
                   ],
                 ),
               ),
@@ -46,27 +54,9 @@ class MyApp extends StatelessWidget {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Expanded(
-                      child: MaterialButton(
-                        onPressed: () {},
-                        color: Colors.red,
-                        child: Text("1"),
-                      ),
-                    ),
-                    Expanded(
-                      child: MaterialButton(
-                        onPressed: () {},
-                        color: Colors.green,
-                        child: Text("2"),
-                      ),
-                    ),
-                    Expanded(
-                      child: MaterialButton(
-                        onPressed: () {},
-                        color: Colors.blue,
-                        child: Text("3"),
-                      ),
-                    ),
+                   myNumberButton(Colors.red, 1),
+                   myNumberButton(Colors.green, 2),
+                   myNumberButton(Colors.purple, 3),
                   ],
                 ),
               ),
@@ -74,27 +64,9 @@ class MyApp extends StatelessWidget {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Expanded(
-                      child: MaterialButton(
-                        onPressed: () {},
-                        color: Colors.red,
-                        child: Text("4"),
-                      ),
-                    ),
-                    Expanded(
-                      child: MaterialButton(
-                        onPressed: () {},
-                        color: Colors.green,
-                        child: Text("5"),
-                      ),
-                    ),
-                    Expanded(
-                      child: MaterialButton(
-                        onPressed: () {},
-                        color: Colors.blue,
-                        child: Text("6"),
-                      ),
-                    ),
+                   myNumberButton(Colors.purpleAccent, 4),
+                    myNumberButton(Colors.yellow, 5),
+                    myNumberButton(Colors.deepPurple, 6),
                   ],
                 ),
               ),
@@ -102,27 +74,9 @@ class MyApp extends StatelessWidget {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Expanded(
-                      child: MaterialButton(
-                        onPressed: () {},
-                        color: Colors.red,
-                        child: Text("7"),
-                      ),
-                    ),
-                    Expanded(
-                      child: MaterialButton(
-                        onPressed: () {},
-                        color: Colors.green,
-                        child: Text("8"),
-                      ),
-                    ),
-                    Expanded(
-                      child: MaterialButton(
-                        onPressed: () {},
-                        color: Colors.blue,
-                        child: Text("9"),
-                      ),
-                    ),
+                    myNumberButton(Colors.grey, 7),
+                    myNumberButton(Colors.cyan, 8),
+                    myNumberButton(Colors.white70, 9),
                   ],
                 ),
               ),
@@ -130,13 +84,7 @@ class MyApp extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Expanded(
-                      child: MaterialButton(
-                        onPressed: () {},
-                        color: Colors.teal,
-                        child: Text("10"),
-                      ),
-                    )
+                    myNumberButton(Colors.indigoAccent, 10)
                   ],
                 ),
               ),
@@ -146,5 +94,4 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-
 }
